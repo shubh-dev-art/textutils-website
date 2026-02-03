@@ -3,13 +3,13 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextArea from './components/TextArea';
 import Alert from './components/Alert';
-import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import About from './components/About';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 function App() {
 	const[mode, setMode] = useState('light');
@@ -42,16 +42,16 @@ function App() {
 
 	return (
 		<>
-			<Router>
-				<Navbar title = "Textutils" aboutText = "About" mode = {mode} toggleMode = {toggleMode}/>
+			{/* <Router> */}
+				<Navbar title = "Textutils"  mode = {mode} toggleMode = {toggleMode}/>
 				<Alert alert = {alert}/>
 				<div className="container my-3">
-					<Routes>
-						<Route exact path = "/" element = {<TextArea showAlert = {showAlert} heading = "Enter your text to redefine" mode = {mode}/>} />
-          				<Route exact path="/about" element={<About showAlert = {showAlert} heading = "About Us" mode = {mode}/>} />
-					</Routes>
+					{/* <Routes> */}
+						<TextArea showAlert = {showAlert} heading = "Enter your text to redefine" mode = {mode}/>
+          				{/* <About showAlert = {showAlert} heading = "About Us" mode = {mode}/> */}
+					{/* </Routes> */}
 				</div>
-			</Router>
+			{/* </Router> */}
 		</>
 	);
 }

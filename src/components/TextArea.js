@@ -20,10 +20,7 @@ export default function TextArea(props) {
     }
 
     const handleCoText = ()=>{
-        let newText = document.getElementById("myBox");
-        newText.select();
-        navigator.clipboard.writeText(newText.value);
-        document.getSelection().removeAllRanges();
+        navigator.clipboard.writeText(text);
         props.showAlert("Text copied to clipboard successfully!","success");
     }
 
@@ -51,8 +48,8 @@ export default function TextArea(props) {
 			<button disabled = {text.length===0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 			<div className="container my-5" style = {{color : props.mode==='dark'?'white':'#042743'}}>
 				<h3>Your Text Summary</h3>
-				<p>{text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.trim().length} characters</p>
-				<p>{0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes Read</p>
+				<p>{text.split(/\s+/).filter((element)=>{return element.length !== 0}).length} words and {text.trim().length} characters</p>
+				<p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length !== 0}).length} Minutes Read</p>
 				<h3>Preview</h3>
 				<p>{text.trim().length > 0? text:'Nothing to preview!'}</p>
 			</div>
